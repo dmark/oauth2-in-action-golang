@@ -1,7 +1,9 @@
 # oauth2-in-action-golang
 
-*Summary*: [_OAuth 2 in Action_](https://www.manning.com/books/oauth-2-in-action) code samples, re-written in golang.
+**Summary**: [_OAuth 2 in Action_](https://www.manning.com/books/oauth-2-in-action) code samples, re-written in golang.
+
 ---
+
 I am learning [golang](https://go.dev/). As an exercise, I will be re-writing the code samples from _OAuth 2 in Action_, by Justin Richer and Antonio Sanso, in go.
 
 The original sources are here: https://github.com/oauthinaction/oauth-in-action-code
