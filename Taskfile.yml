@@ -1,0 +1,37 @@
+# Taskfile.yml
+version: '3'
+
+tasks:
+  ap-A-ex-0:
+    desc: Start all Appendix A Exercise 0 servers
+    deps:
+      - task: resource
+      - task: auth-server
+      - task: client
+
+  resource:
+    cmds:
+      - go run ./exercises/ap-A-ex-0/protectedResource/main.go
+  auth-server:
+    cmds:
+      - go run ./exercises/ap-A-ex-0/authorizationServer/main.go
+  client:
+    cmds:
+      - go run ./exercises/ap-A-ex-0/client/main.go
+
+  ch-3-ex-1:
+    desc: Start all Chapter 3 Exercise 1 servers
+    deps:
+      - task: resource
+      - task: auth-server
+      - task: client
+
+  resource:
+    cmds:
+      - go run ./exercises/ch-3-ex-1/protectedResource/main.go
+  auth-server:
+    cmds:
+      - go run ./exercises/ch-3-ex-1/authorizationServer/main.go
+  client:
+    cmds:
+      - go run ./exercises/ch-3-ex-1/client/main.go
