@@ -8,14 +8,14 @@ The original sources are written in javascript / node.js. They use express, Unde
 
 ## Submitting PRs
 
-You are welcome to submit PRs and issues, but keep in mind I am doing this as an exercise in learning Go, so I may not merge any PRs or resolve any issues until I have completed the project. Also bear in mind the "Assumtions" below.
+You are welcome to submit PRs and issues, but keep in mind I am doing this as an exercise in learning Go, so I may not merge any PRs or resolve any issues until I have completed the project. Also bear in mind the "Assumptions" below.
 
 ## Assumptions
 
 The point of the book is to learn about the inner workings of OAuth2, and not to learn any particular programming language. For this reason, these translated golang versions of the book's exercises will keep things as simple as possible, meaning:
 
 * Using native features in golang and the standard library wherever possible (e.g., `net/http`, not Gin; `html/template`, not Templ)
-* Not necessarily doing things the "correct" way, either from a professional software development perspective, or from an idiomatic golang perspective.
+* Not necessarily doing things the "correct" way, either from a professional software development perspective (I am not a professional software developer), or from an idiomatic golang perspective.
 
 ## 2025-12-29
 
@@ -24,6 +24,8 @@ What has changed? Other than golang itself!
 1. The directory structure for each exercise has changed as follows: within each exercise directory, each of the actors (the client, the authorization server, and the resource server) have their own sub-directories, and each actor's HTML template file is stored in a `files/` directory therein.
 1. In place of Express.js, we will use the standard library's `net/http` package.
 1. In place of Underscore.js and Consolidate.js, we will use the the standard library's `html/template` package and other built-in functionality.
+1. The template files for the sample code from Appendix A have been converted to use `html/template` syntax.
+1. The code for the OAuth client in Go is complete. Running the client `main.go` results in the same user experience as the original JavaScript.
 
 I've also added a Taskfile.yml so you can launch each exercise with a single `task` (modern-day `make` for old people like me) command. E.g.,
 
