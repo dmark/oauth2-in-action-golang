@@ -41,18 +41,18 @@
 		  <div class="alert alert-danger" role="alert">This is the shell for the <strong>OAuth Authorization Server</strong>. This provides no actual functionality.</div>
 		  
 		  <h2>Client information:</h2>
-		  {{ range .clients }}
+		  {{ range .Clients }}
 		  <ul>
-			  <li><b>client_id:</b> <code>{{ .client_id }}</code></li>
-			  <li><b>client_secret:</b> <code>{{ .client_secret }}</code></li>
-			  <li><b>scope:</b> <code>{{ .scope }}</code></li>
-			  <li><b>redirect_uri:</b> <code>{{ .redirect_uri }}</code></li>
+			  <li><b>client_id:</b> <code>{{ .ClientID }}</code></li>
+			  <li><b>client_secret:</b> <code>{{ .ClientSecret }}</code></li>
+			  <li><b>scope:</b> <code>{{ .Scope }}</code></li>
+			  <li><b>redirect_uri:</b> <code>{{ .RedirectURIs }}</code></li>
 		   </ul>
 		   {{ end }}
 		   <h2>Server information:</h2>
 		  <ul>
-			  <li><b>authorization_endpoint:</b> <code>{{ .authServer.authorizationEndpoint }}</code></li>
-			  <li><b>token_endpoint:</b> <code>{{ .authServer.tokenEndpoint }}</code></li>
+			  <li><b>authorization_endpoint:</b> <code>{{ .AuthServer.AuthorizationEndpoint }}</code></li>
+			  <li><b>token_endpoint:</b> <code>{{ .AuthServer.TokenEndpoint }}</code></li>
 		   </ul>
       </div>
 

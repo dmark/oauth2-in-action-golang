@@ -10,14 +10,16 @@ import (
 // Global variables to mimic the stateful nature of the JS example
 // In a production app, these would be stored in a session or database
 var (
-	accessToken  string
-	refreshToken string
-	scope        string
+	AccessToken  string
+	RefreshToken string
+	Scope        string
 	// Parse templates once at startup for efficiency
 	templates = template.Must(template.ParseFiles("exercises/ap-A-ex-0/client/files/index.html"))
 )
 
 func main() {
+	// Note we're relying on the DefaultServerMux here. No explicit declaration
+	// of a servemux. Which may be contrary to nbest practices?
 	// 1. Static file serving (Equivalent to express.static)
 	// This serves images, CSS, or JS files from the directory
 	fs := http.FileServer(http.Dir("files"))
@@ -27,13 +29,11 @@ func main() {
 	// 2. Root Route (Equivalent to app.get('/'))
 	http.HandleFunc("/", indexHandler) // each request calls handler
 
-	// 3. Start Server (Equivalent to app.listen)
-	// Start the server on port 9000
+	// Start Server (Equivalent to app.listen)
 	host := "localhost"
 	port := "9000"
 	log.Printf("OAuth Client is listening at http://%s:%s", host, port)
 
-	//fmt.Println("Server is starting on port 9000...")
 	err := http.ListenAndServe(host+":"+port, nil)
 	if err != nil {
 		log.Fatal("ListenAndServer: ", err)
@@ -50,9 +50,9 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Data object to pass to the template
 	data := map[string]interface{}{
-		"access_token":  accessToken,
-		"refresh_token": refreshToken,
-		"scope":         scope,
+		"access_token":  AccessToken,
+		"refresh_token": RefreshToken,
+		"scope":         Scope,
 	}
 
 	// Render the template (Equivalent to res.render)

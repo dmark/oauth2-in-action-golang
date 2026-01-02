@@ -45,11 +45,11 @@
             <div class="alert alert-info" role="alert">This is the shell for the <strong>OAuth Client</strong>. This
                 provides no actual functionality.</div>
 
-            <p>Access token value: <span class="label label-danger">{{ if .access_token }}{{ .access_token }}{{ else
+            <p>Access token value: <span class="label label-danger">{{ if .AccessToken }}{{ .AccessToken }}{{ else
                     }}NONE{{ end }}</span></p>
-            <p>Scope value: <span class="label label-danger">{{ if .scope }}{{ .scope }}{{ else }}NONE{{ end }}</span>
+            <p>Scope value: <span class="label label-danger">{{ if .Scope }}{{ .Scope }}{{ else }}NONE{{ end }}</span>
             </p>
-            <p>Refresh token value: <span class="label label-danger">{{ if .refresh_token }}{{ .refresh_token }}{{ else
+            <p>Refresh token value: <span class="label label-danger">{{ if .RefreshToken }}{{ .RefreshToken }}{{ else
                     }}NONE{{ end }}</span></p>
             <button class="btn btn-default" href="/authorize" disabled>Get OAuth Token</button>
             <button class="btn btn-default" href="/fetch_resource" disabled>Get Protected Resource</button>
