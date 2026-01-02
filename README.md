@@ -15,7 +15,7 @@ You are welcome to submit PRs and issues, but keep in mind I am doing this as an
 The point of the book is to learn about the inner workings of OAuth2, and not to learn any particular programming language. For this reason, these translated golang versions of the book's exercises will keep things as simple as possible, meaning:
 
 * Using native features in golang and the standard library wherever possible (e.g., `net/http`, not Gin; `html/template`, not Templ)
-* Not necessarily doing things the "correct" way, either from a professional software development perspective (I an architect and systems engineer, not a professional software engineer), or from an idiomatic golang perspective.
+* Not necessarily doing things the "correct" way, either from a professional software development perspective (I'm an architect and systems engineer, not a professional software engineer), or from an idiomatic golang perspective.
 
 ## 2026-01-01
 
