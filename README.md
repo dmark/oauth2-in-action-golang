@@ -21,7 +21,7 @@ The point of the book is to learn about the inner workings of OAuth2, and not to
 
 What has changed? Other than golang itself!
 
-1. The directory structure for each exercise has changed as follows: within each exercise directory, each of the actors (the client, the authorization server, and the resource server) have their own sub-directories, and each actor's HTML template file is stored in a `files/` directory therein.
+1. The directory structure for each exercise has changed, compared with the original javascript, as follows: within each exercise directory, each of the actors (the client, the authorization server, and the resource server) have their own sub-directories, and each actor's HTML template file is stored in a `files/` directory therein.
 1. In place of Express.js, we will use the standard library's `net/http` package.
 1. In place of Underscore.js and Consolidate.js, we will use the the standard library's `html/template` package and other built-in functionality.
 1. The template files for the sample code from Appendix A have been converted to use `html/template` syntax.
@@ -33,4 +33,4 @@ I've also added a Taskfile.yml so you can launch each exercise with a single `ta
 $ task ap-A-ex-0
 ```
 
-The task names match the directory names for each exercise. You run `task [taskname]` from the project root directory. `brew install go-task` if you are on a Mac and using Homebrew. Using `task` is optional. You can always `go run` the individual `main.go` files for each exercise.
+The task names match the directory names for each exercise. Run `task [taskname]` from the project root directory. `brew install go-task` if you are on a Mac and using Homebrew. Using `task` is optional. You can always `go run` the individual `main.go` files for each exercise.

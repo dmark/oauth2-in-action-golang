@@ -2,36 +2,31 @@
 version: '3'
 
 tasks:
+  # --- Exercise Definitions ---
   ap-A-ex-0:
     desc: Start all Appendix A Exercise 0 servers
-    deps:
-      - task: resource
-      - task: auth-server
-      - task: client
-
-  resource:
     cmds:
-      - go run ./exercises/ap-A-ex-0/protectedResource/main.go
-  auth-server:
-    cmds:
-      - go run ./exercises/ap-A-ex-0/authorizationServer/main.go
-  client:
-    cmds:
-      - go run ./exercises/ap-A-ex-0/client/main.go
+      - task: _run-suite
+        vars: { EX: "ap-A-ex-0" }
 
   ch-3-ex-1:
     desc: Start all Chapter 3 Exercise 1 servers
-    deps:
-      - task: resource
-      - task: auth-server
-      - task: client
+    cmds:
+      - task: _run-suite
+        vars: { EX: "ch-3-ex-1" }
 
-  resource:
+  # --- Helpers ---
+  _run-suite:
+    internal: true
+    deps:
+      - task: _go-run
+        vars: { EX: "{{.EX}}", DIR: "protectedResource"}
+      - task: _go-run
+        vars: { EX: "{{.EX}}", DIR: "authorizationServer"}
+      - task: _go-run
+        vars: { EX: "{{.EX}}", DIR: "client"}
+
+  _go-run:
+    internal: true
     cmds:
-      - go run ./exercises/ch-3-ex-1/protectedResource/main.go
-  auth-server:
-    cmds:
-      - go run ./exercises/ch-3-ex-1/authorizationServer/main.go
-  client:
-    cmds:
-      - go run ./exercises/ch-3-ex-1/client/main.go
+      - go run ./exercises/{{.EX}}/{{.DIR}}/main.go
