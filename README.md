@@ -19,6 +19,7 @@ The point of the book is to learn about the inner workings of OAuth2, and not to
 
 ## 2026-01-01
 
+* Happy New Year!
 * My `Taskfile.yml` syntax was wrong. The file has been fixed, and optimized to handle the eventual long list of exercises.
 * The code and templates for the authorization server and resource server Appendix code are updated. They're a mess, but they work. I'll spend some time cleaning these up before moving on, as these will server as the template for the rest of the exercises.
 
