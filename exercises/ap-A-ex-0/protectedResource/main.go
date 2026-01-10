@@ -1,4 +1,3 @@
-// a minimalist "echo" webserver
 package main
 
 import (
@@ -15,23 +14,23 @@ var (
 )
 
 func main() {
-	// Note we're relying on the DefaultServerMux here. No explicit declaration
-	// of a servemux. Which may be contrary to nbest practices?
+	mux := http.NewServeMux()
+
 	// 1. Static file serving (Equivalent to express.static)
 	// This serves images, CSS, or JS files from the directory
 	fs := http.FileServer(http.Dir("files"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	// http.HandleFunc registers a handler function for the given pattern
 	// 2. Root Route (Equivalent to app.get('/'))
-	http.HandleFunc("/", indexHandler) // each request calls handler
+	mux.HandleFunc("/", indexHandler) // each request calls handler
 
 	// Start Server (Equivalent to app.listen)
 	host := "localhost"
 	port := "9002"
 	log.Printf("OAuth Resource Server is listening at http://%s:%s", host, port)
 
-	err := http.ListenAndServe(host+":"+port, nil)
+	err := http.ListenAndServe(host+":"+port, mux)
 	if err != nil {
 		log.Fatal("ListenAndServer: ", err)
 	}
@@ -40,12 +39,14 @@ func main() {
 // handler echos the path component of the requested URL
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	// Only handle the exact root path
+	// Is this not better handled using {$}?
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
 	}
 
 	// Data object to pass to the template
+	// There's nothing to pass to the template at this point.
 	//data := map[string]interface{}{
 	//	"access_token":  AccessToken,
 	//	"refresh_token": RefreshToken,

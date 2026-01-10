@@ -4,7 +4,7 @@
 
 I am learning [golang](https://go.dev/). As an exercise, I will be re-writing the [code samples](https://github.com/oauthinaction/oauth-in-action-code) from _OAuth 2 in Action_, by [Justin Richer](https://github.com/jricher) and [Antonio Sanso](https://github.com/asanso), in Go.
 
-The original sources are written in javascript / node.js. They use express, Underscore.js and Consolidate.js.
+The original sources are written in JavaScript. They use Express.js, Underscore.js and Consolidate.js.
 
 ## Submitting PRs
 
@@ -17,11 +17,16 @@ The point of the book is to learn about the inner workings of OAuth2, and not to
 * Using native features in golang and the standard library wherever possible (e.g., `net/http`, not Gin; `html/template`, not Templ)
 * Not necessarily doing things the "correct" way, either from a professional software development perspective (I'm an architect and systems engineer, not a professional software engineer), or from an idiomatic golang perspective.
 
+## 2026-01-10
+
+* There are more idiomatic ways to structure the code, like having `cmd` and `ui` directories, but I'm keeping the structure here close to that of the original `js` sources.
+* Updated the Appendix files to explicity create a ServeMux.
+
 ## 2026-01-01
 
 * Happy New Year!
 * My `Taskfile.yml` syntax was wrong. The file has been fixed, and optimized to handle the eventual long list of exercises.
-* The code and templates for the authorization server and resource server Appendix code are updated. They're a mess, but they work. I'll spend some time cleaning these up before moving on, as these will server as the template for the rest of the exercises.
+* The code and templates for the authorization server and resource server Appendix code are updated. They're a mess, but they work. I'll spend some time cleaning these up before moving on, as these will serve as the templates for the rest of the exercises.
 
 ## 2025-12-29
 

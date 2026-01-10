@@ -1,4 +1,3 @@
-// a minimalist "echo" webserver
 package main
 
 import (
@@ -8,6 +7,7 @@ import (
 )
 
 // Client represents the OAuth client information from the book
+// Is this necessary, given the goal is to keep the code as basic as possible?
 type Client struct {
 	ClientID     string   `json:"client_id"`
 	ClientSecret string   `json:"client_secret"`
@@ -49,23 +49,23 @@ var (
 )
 
 func main() {
-	// Note we're relying on the DefaultServerMux here. No explicit declaration
-	// of a servemux. Which may be contrary to nbest practices?
+	mux := http.NewServeMux()
+
 	// 1. Static file serving (Equivalent to express.static)
 	// This serves images, CSS, or JS files from the directory
 	fs := http.FileServer(http.Dir("files"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	// http.HandleFunc registers a handler function for the given pattern
 	// 2. Root Route (Equivalent to app.get('/'))
-	http.HandleFunc("/", indexHandler) // each request calls handler
+	mux.HandleFunc("/", indexHandler) // each request calls handler
 
 	// Start Server (Equivalent to app.listen)
 	host := "localhost"
 	port := "9001"
 	log.Printf("OAuth Authorization Server is listening at http://%s:%s", host, port)
 
-	err := http.ListenAndServe(host+":"+port, nil)
+	err := http.ListenAndServe(host+":"+port, mux)
 	if err != nil {
 		log.Fatal("ListenAndServer: ", err)
 	}
@@ -74,6 +74,7 @@ func main() {
 // handler echos the path component of the requested URL
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	// Only handle the exact root path
+	// Is this not better handled using {$}?
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
