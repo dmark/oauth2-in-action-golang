@@ -81,6 +81,8 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Data to pass to the template
+	// A map is golang's dict or hash. Below is a dict with string keys and
+	// interface values.
 	data := map[string]interface{}{
 		"Clients":    clients,
 		"AuthServer": authServer,
